@@ -1,0 +1,5 @@
+cron:
+- description: load articles
+  url: /load
+  schedule: every 60 minutes
+  timezone: Europe/London

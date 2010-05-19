@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>GuardianRoulette</title>
+<style type="text/css" media="all">
+html, body {
+    height: 100%
+}
+body {
+    margin: 0;
+    overflow: hidden;
+}
+#topbar {
+    height: 24px;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #666;
+    font-family: "Helvetica Neue",helvetica,arial,sans-serif;
+    background-color: lightyellow;
+}
+a:link, a:visited {
+    color: blue;
+}
+#iframe {
+    height: 100%;
+    width: 100%;
+    border-width: 0
+}
+a.button {
+    background: transparent url('/static/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 16px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+a.button span {
+    background: transparent url('/static/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+}
+
+a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+}
+</style>
+</head>
+<body>
+<div id="topbar">
+	<div style="float:left; width=45%; padding-top:2px;">You are viewing a random guardian.co.uk page from the past 24 hours &middot; <a href="{{url}}">remove this bar</a> &middot; <a href="http://www.guardian.co.uk/help/insideguardian/2010/mar/26/random-guardian">about</a>
+	</div>
+	<div style="float:right; width=45%; padding-right:25px;">
+	    {%if section %}
+	        <a href ="/random/{{section}}" class="button" onclick="this.blur();"><span><strong>view another from {{section}} &gt;&gt;</strong></span></a>
+	    {%else%}
+	        <a href ="/" class="button" onclick="this.blur();"><span><strong>play again &gt;&gt;</strong></span></a>
+	    {%endif%}
+	</div>
+  </div>
+<iframe id="iframe" src={{url}}></iframe>
+</body>
+</html>
